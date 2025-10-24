@@ -1,1 +1,4 @@
-pub mod forward_list;
+mod forward_list;
+
+pub use forward_list::*;
+

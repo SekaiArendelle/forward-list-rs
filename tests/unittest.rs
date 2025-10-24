@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod unittest {
-    use forward_list::forward_list::ForwardList;
+    use forward_list::ForwardList;
     use forward_list::make_forward_list;
 
     #[test]
