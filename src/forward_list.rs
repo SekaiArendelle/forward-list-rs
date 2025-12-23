@@ -38,7 +38,7 @@ impl<T> ForwardList<T> {
         other.next = temp.take();
     }
 
-    pub fn empty(&self) -> bool {
+    pub fn is_empty(&self) -> bool {
         return self.next.is_none();
     }
 

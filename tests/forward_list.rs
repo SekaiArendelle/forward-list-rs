@@ -6,13 +6,13 @@ mod unittest {
     #[test]
     fn test_constructor1() {
         let list: ForwardList<i32> = make_forward_list![];
-        assert!(list.empty());
+        assert!(list.is_empty());
     }
 
     #[test]
     fn test_constructor2() {
         let list = make_forward_list![1, 2, 3];
-        assert!(!list.empty());
+        assert!(!list.is_empty());
     }
 
     #[test]
