@@ -1,23 +1,23 @@
-pub struct Node<T> {
+pub struct ForwardListNode<T> {
     value: T,
-    next: Option<Box<Node<T>>>,
+    next: Option<Box<ForwardListNode<T>>>,
 }
 
 pub struct ForwardList<T> {
-    next: Option<Box<Node<T>>>,
+    next: Option<Box<ForwardListNode<T>>>,
 }
 
 pub struct ForwardListIter<'a, T> {
-    current: Option<&'a Box<Node<T>>>,
+    current: Option<&'a Box<ForwardListNode<T>>>,
 }
 
-impl<T> Node<T> {
+impl<T> ForwardListNode<T> {
     pub fn value(&self) -> &T {
         &self.value
     }
 
-    pub fn insert_after(&mut self, value: T) -> &mut Box<Node<T>> {
-        let new_node = Box::new(Node {
+    pub fn insert_after(&mut self, value: T) -> &mut Box<ForwardListNode<T>> {
+        let new_node = Box::new(ForwardListNode {
             value: value,
             next: None,
         });
@@ -42,16 +42,16 @@ impl<T> ForwardList<T> {
         return self.next.is_none();
     }
 
-    pub fn front(&self) -> &Box<Node<T>> {
+    pub fn front(&self) -> &Box<ForwardListNode<T>> {
         self.next.as_ref().unwrap()
     }
 
-    pub fn front_mut(&mut self) -> &mut Box<Node<T>> {
+    pub fn front_mut(&mut self) -> &mut Box<ForwardListNode<T>> {
         self.next.as_mut().unwrap()
     }
 
     pub fn push_front(&mut self, value: T) {
-        let new_node = Box::new(Node {
+        let new_node = Box::new(ForwardListNode {
             value: value,
             next: self.next.take(),
         });
